@@ -11,7 +11,7 @@ const Logo = () => {
         <img style={{ paddingTop: '1px' }}  alt="logo" src={brain} />
       </div>
     </Tilt>
-    <p className="dark-gray tc f6 ma3 shadow-2 br3" style={{height: "54px", width: "145px", "marginLeft": "0px"}}>Icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="http://www.flaticon.com/" target="_blank" rel="noopener noreferrer">www.flaticon.com</a></p>
+    <p className="tc f6 ma3 shadow-2 br3" style={{height: "54px", width: "145px", "marginLeft": "0px"}}>Icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="http://www.flaticon.com/" target="_blank" rel="noopener noreferrer">www.flaticon.com</a></p>
     </div>
   )
 }

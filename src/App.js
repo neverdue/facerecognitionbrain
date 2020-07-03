@@ -24,7 +24,7 @@ const parameters = {
 const initialState = {
   Input: '',
   ImageUrl: '',
-  box: {},
+  box: [],
   route: 'signin',
   isSignedIn: false,
   user: {
@@ -53,16 +53,20 @@ class App extends React.Component {
   }
 
   CalculateFaceLocation = (data) => {
-    const FaceBox = data.outputs[0].data.regions[0].region_info.bounding_box;
+    const box = [];
     const Image = document.getElementById('ImageInput');
     const width = Number(Image.width);
     const height = Number(Image.height);
-    return {
-      topRow: FaceBox.top_row * height,
-      leftCol: FaceBox.left_col * width,
-      rightCol: width - (FaceBox.right_col * width),
-      bottomRow: height - (FaceBox.bottom_row * height)
-    }
+    const Faces = data.outputs[0].data.regions;
+    Faces.forEach((Face, i) => {
+      box.push({
+        topRow: Face.region_info.bounding_box.top_row * height,
+        leftCol: Face.region_info.bounding_box.left_col * width,
+        rightCol: width - (Face.region_info.bounding_box.right_col * width),
+        bottomRow: height - (Face.region_info.bounding_box.bottom_row * height)
+      })
+    });
+    return box;
   }
 
   displayFaceBox = (box) => {
@@ -128,7 +132,7 @@ class App extends React.Component {
         onInputChange={this.onInputChange}
         onButtonSubmit={this.onButtonSubmit}
       />
-      <FaceRecognition ImageUrl={this.state.ImageUrl} box={this.state.box}/>
+      <FaceRecognition ImageUrl={this.state.ImageUrl} allbox={this.state.box}/>
       </div>
     )}
     </div>

@@ -15,7 +15,7 @@ const parameters = {
     value: 30,
     desnity: {
       enable: true,
-      value_area: 800
+      value_area: 500
     }
 },
   move: {

@@ -77,6 +77,12 @@ class App extends React.Component {
     this.setState({ Input: event.target.value });
   }
 
+  onButtonEnterDetect = (event) => {
+    if (event.which === 13) {
+      this.onButtonSubmit();
+    }
+  }
+
   onButtonSubmit = (event) => {
     this.setState({ ImageUrl: this.state.Input });
     fetch('https://frozen-hollows-93293.herokuapp.com/imageurl', {
@@ -131,6 +137,7 @@ class App extends React.Component {
       <InputLinkForm
         onInputChange={this.onInputChange}
         onButtonSubmit={this.onButtonSubmit}
+        onButtonEnterDetect={this.onButtonEnterDetect}
       />
       <FaceRecognition ImageUrl={this.state.ImageUrl} allbox={this.state.box}/>
       </div>

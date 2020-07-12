@@ -11,17 +11,14 @@ import './App.css';
 
 const parameters = {
   particles: {
-    move: {
-      speed: 5
-    },
     number: {
-      value: 100,
+      value: 70,
       density: {
         enable: true,
-        value_area: 800
+        value_area: 500
       }
     }
-  },
+  }
 }
 
 const initialState = {

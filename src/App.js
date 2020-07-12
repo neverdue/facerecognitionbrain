@@ -12,7 +12,11 @@ import './App.css';
 const parameters = {
   particles: {
     number: {
-    value: 25
+    value: 25,
+    desnity: {
+      enable: true,
+      value_area: 800
+    }
   },
   move: {
     speed: 1.3

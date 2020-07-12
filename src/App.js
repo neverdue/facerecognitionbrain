@@ -122,7 +122,7 @@ class App extends React.Component {
       <Particles className="particles" params={particlesOptions}/>
       <Navigation isSignedIn={this.state.isSignedIn} onButtonRedirect={this.onButtonRedirect} />
       { (this.state.route === 'signin')
-      ? <SignIn loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect} />
+      ? <SignIn loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect}/>
       : ((this.state.route === 'register')
       ? <Register loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect} />
       : <div>

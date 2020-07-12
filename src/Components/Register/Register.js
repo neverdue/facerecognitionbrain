@@ -22,6 +22,12 @@ class Register extends React.Component {
     this.setState({ password: event.target.value });
   }
 
+  onButtonEnterRegister = (event) => {
+    if (event.which === 13) {
+      this.onSubmitRegister();
+    }
+  }
+
   onSubmitRegister = (event) => {
     fetch('https://frozen-hollows-93293.herokuapp.com/register', {
       method: 'post',
@@ -44,7 +50,7 @@ class Register extends React.Component {
   render() {
     return (
       <article className="br3 shadow-5 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw7 center">
-        <div>
+        <div onKeyUp={this.onButtonEnterRegister}>
           <main className="pa4 black-80">
             <div className="measure">
               <fieldset id="sign_up" className="ba b--transparent ph0 mh0">

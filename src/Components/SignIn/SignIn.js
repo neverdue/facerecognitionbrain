@@ -17,6 +17,12 @@ class SignIn extends React.Component {
     this.setState({ SignInPassword: event.target.value });
   }
 
+  onButtonEnterSignIn = (event) => {
+    if (event.which === 13) {
+      this.onSubmitSignIn();
+    }
+  }
+
   onSubmitSignIn = (event) => {
     fetch('https://frozen-hollows-93293.herokuapp.com/signin', {
       method: 'post',
@@ -38,7 +44,7 @@ class SignIn extends React.Component {
   render() {
     return (
       <article className="br3 shadow-5 ba dark-gray b--black-10 mv5 w-100 w-50-m w-25-l mw7 center">
-        <div>
+        <div onKeyUp={this.onButtonEnterSignIn}>
           <main className="pa4 black-80">
             <div className="measure">
               <fieldset id="sign_up" className="ba b--transparent ph0 mh0">

@@ -9,6 +9,7 @@ const InputLinkForm = ({ onInputChange, onButtonSubmit, onButtonEnterDetect }) =
       </p>
       <div className="form center pa4 br3 shadow-2">
       <input
+      placeholder="Insert Image URL Here"
       className="f4 pa2 w-70"
       type="text"
       onKeyUp={onButtonEnterDetect}

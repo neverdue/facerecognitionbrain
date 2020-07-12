@@ -9,19 +9,16 @@ import Register from './Components/Register/Register';
 import Particles from 'react-particles-js';
 import './App.css';
 
-const parameters = {
+const particlesOptions = {
   particles: {
-    number: {
-    value: 80,
-    desnity: {
-      enable: true,
-      value_area: 5000
+    number:{
+      value: 30,
+      density:{
+        enable:true,
+        value_area: 800
+      }
     }
-},
-  move: {
-    speed: 1.3
-  },
-}
+  }
 }
 
 const initialState = {
@@ -122,7 +119,7 @@ class App extends React.Component {
   render() {
     return (
     <div>
-      <Particles className="particles" params={parameters} />
+      <Particles className="particles" params={particlesOptions}/>
       <Navigation isSignedIn={this.state.isSignedIn} onButtonRedirect={this.onButtonRedirect} />
       { (this.state.route === 'signin')
       ? <SignIn loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect} />

@@ -12,10 +12,10 @@ import './App.css';
 const parameters = {
   particles: {
     number: {
-    value: 30,
+    value: 80,
     desnity: {
       enable: true,
-      value_area: 500
+      value_area: 5000
     }
 },
   move: {

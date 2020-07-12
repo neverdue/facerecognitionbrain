@@ -15,7 +15,7 @@ const parameters = {
       value: 80,
       density: {
         enable: true,
-        value_area: 800
+        value_area: 500
       }
     }
   }

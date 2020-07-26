@@ -6,7 +6,8 @@ class Register extends React.Component {
     this.state = {
       email: '',
       password: '',
-      name: ''
+      name: '',
+      showMessage: this.props.showMessage
     }
   }
 
@@ -43,13 +44,26 @@ class Register extends React.Component {
         if (user.name) {
           this.props.loadUser(user);
           this.props.onButtonRedirect('home');
+        } else if (user === "can't register") {
+          this.props.changeMessage('register');
+          this.refs.name.value = '';
+          this.refs.email.value = '';
+          this.refs.password.value = '';
         }
       })
   }
 
   render() {
     return (
-      <article className="br3 shadow-5 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw7 center">
+      <div>
+          { this.props.showMessage ?
+            <div className="alert alert-warning">
+                <strong>The user already exists! Please sign in</strong>
+            </div>
+            : <div>
+              </div>
+          }
+        <article className="br3 shadow-5 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw7 center">
         <div onKeyUp={this.onButtonEnterRegister}>
           <main className="pa4 black-80">
             <div className="measure">
@@ -58,6 +72,7 @@ class Register extends React.Component {
                 <div className="mt3">
                   <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
                   <input
+                    ref="name"
                     className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-auto"
                     type="name"
                     name="name"
@@ -68,6 +83,7 @@ class Register extends React.Component {
                 <div className="mt3">
                   <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                   <input
+                    ref="email"
                     className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                     type="email"
                     name="email-address"
@@ -78,6 +94,7 @@ class Register extends React.Component {
                 <div className="mv3">
                   <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
                   <input
+                    ref="password"
                     className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                     type="password"
                     name="password"
@@ -97,7 +114,8 @@ class Register extends React.Component {
             </div>
           </main>
         </div>
-      </article>
+        </article>
+      </div>
     )
   }
 }

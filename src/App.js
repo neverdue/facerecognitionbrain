@@ -120,19 +120,28 @@ class App extends React.Component {
     } else if (route === 'signin') {
       this.setState(initialState);
       window.location.reload();
+    } else if (route === 'register') {
+      this.setState({ showMessage: false })
     }
     this.setState({route: route});
   }
+
+  changeMessage = (route) => {
+    if (route === 'register') {
+      this.setState({ showMessage: true });
+    }
+  }
+
 
   render() {
     return (
     <div>
       <Particles className="particles" params={particlesOptions}/>
-      <Navigation isSignedIn={this.state.isSignedIn} onButtonRedirect={this.onButtonRedirect} />
+      <Navigation isSignedIn={this.state.isSignedIn} onButtonRedirect={this.onButtonRedirect}/>
       { (this.state.route === 'signin')
       ? <SignIn loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect} showMessage={this.state.showMessage}/>
       : ((this.state.route === 'register')
-      ? <Register loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect} />
+      ? <Register loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect} showMessage={this.state.showMessage} changeMessage={this.changeMessage}/>
       : <div>
       <Logo />
       <Rank name={this.state.user.name} entries={this.state.user.entries} />

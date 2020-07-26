@@ -119,6 +119,7 @@ class App extends React.Component {
       this.setState({isSignedIn: true});
     } else if (route === 'signin') {
       this.setState(initialState);
+      window.location.reload();
     }
     this.setState({route: route});
   }
@@ -129,7 +130,7 @@ class App extends React.Component {
       <Particles className="particles" params={particlesOptions}/>
       <Navigation isSignedIn={this.state.isSignedIn} onButtonRedirect={this.onButtonRedirect} />
       { (this.state.route === 'signin')
-      ? <SignIn loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect}/>
+      ? <SignIn loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect} showMessage={this.state.showMessage}/>
       : ((this.state.route === 'register')
       ? <Register loadUser={this.loadUser} onButtonRedirect={this.onButtonRedirect} />
       : <div>

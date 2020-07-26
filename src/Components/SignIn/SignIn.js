@@ -7,7 +7,7 @@ class SignIn extends React.Component {
     this.state = {
       SignInEmail: '',
       SignInPassword: '',
-      showMessage: false
+      showMessage: this.props.showMessage
     }
   }
 

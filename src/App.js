@@ -34,7 +34,7 @@ const initialState = {
     entries: 0,
     joined: ''
   },
-  showMessage: true
+  showMessage: false
 }
 
 class App extends React.Component {

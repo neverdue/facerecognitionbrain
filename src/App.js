@@ -33,7 +33,8 @@ const initialState = {
     email: '',
     entries: 0,
     joined: ''
-  }
+  },
+  showMessage: true
 }
 
 class App extends React.Component {
